@@ -1,4 +1,3 @@
-
 import React, { useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -35,24 +34,67 @@ const CV = () => {
     toast.loading('Generating PDF...');
     
     try {
-      const canvas = await html2canvas(cvRef.current, {
-        scale: 2,
+      // Create a clone of the CV element to modify for PDF rendering
+      const cvElement = cvRef.current;
+      const clone = cvElement.cloneNode(true) as HTMLElement;
+      
+      // Apply PDF-specific styling to the clone
+      clone.style.width = '210mm'; // A4 width
+      clone.style.backgroundColor = 'white';
+      clone.style.position = 'absolute';
+      clone.style.top = '-9999px';
+      clone.style.left = '-9999px';
+      document.body.appendChild(clone);
+      
+      // High quality HTML2Canvas configuration
+      const canvas = await html2canvas(clone, {
+        scale: 3, // Higher scale for better quality
         useCORS: true,
         logging: false,
         allowTaint: true,
+        backgroundColor: '#ffffff',
+        imageTimeout: 0,
+        windowWidth: 1200,
       });
       
-      const imgData = canvas.toDataURL('image/png');
+      // Remove the clone after capturing
+      document.body.removeChild(clone);
+      
+      // Generate the PDF with higher quality
+      const imgData = canvas.toDataURL('image/jpeg', 1.0);
+      
+      // Use A4 size
       const pdf = new jsPDF({
-        format: 'a4',
+        orientation: 'portrait',
         unit: 'mm',
+        format: 'a4',
       });
       
-      // Calculate the width and height of the PDF
-      const imgWidth = 210; // A4 width in mm
+      // Add image to PDF at maximum quality
+      const pageWidth = pdf.internal.pageSize.getWidth();
+      const pageHeight = pdf.internal.pageSize.getHeight();
+      
+      // Calculate aspect ratio to fit the content properly
+      const imgWidth = pageWidth;
       const imgHeight = (canvas.height * imgWidth) / canvas.width;
       
-      pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
+      // Split into multiple pages if content is too long
+      let heightLeft = imgHeight;
+      let position = 0;
+      let page = 1;
+      
+      pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight, undefined, 'FAST');
+      heightLeft -= pageHeight;
+      
+      // Add additional pages if content doesn't fit on one page
+      while (heightLeft >= 0) {
+        position = -pageHeight * page;
+        page++;
+        pdf.addPage();
+        pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight, undefined, 'FAST');
+        heightLeft -= pageHeight;
+      }
+      
       pdf.save('Jovin_Hirwa_CV.pdf');
       
       toast.dismiss();
@@ -115,7 +157,7 @@ const CV = () => {
                 </div>
               </div>
             </div>
-
+            
             <Separator className="my-6" />
             
             {/* Summary */}
