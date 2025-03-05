@@ -17,7 +17,10 @@ import {
   Star, 
   Github, 
   Linkedin, 
-  Twitter
+  Twitter,
+  Award,
+  Users,
+  Heart
 } from "lucide-react";
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
@@ -263,6 +266,60 @@ const CV = () => {
                 </p>
               </div>
             </div>
+
+            {/* Certifications - New Section */}
+            <div className="cv-section">
+              <h3 className="cv-section-title">
+                <Award className="w-5 h-5 text-accent" />
+                Certifications
+              </h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="cv-item">
+                  <h4 className="font-semibold text-base">AWS Certified Solutions Architect</h4>
+                  <div className="flex items-center gap-2 mt-1">
+                    <Badge variant="outline" className="text-xs">Amazon Web Services</Badge>
+                    <span className="text-sm text-muted-foreground">2023</span>
+                  </div>
+                  <p className="text-muted-foreground mt-1 text-sm">
+                    Designed and deployed scalable, highly available systems on AWS infrastructure.
+                  </p>
+                </div>
+                
+                <div className="cv-item">
+                  <h4 className="font-semibold text-base">Professional Scrum Master I</h4>
+                  <div className="flex items-center gap-2 mt-1">
+                    <Badge variant="outline" className="text-xs">Scrum.org</Badge>
+                    <span className="text-sm text-muted-foreground">2022</span>
+                  </div>
+                  <p className="text-muted-foreground mt-1 text-sm">
+                    Certified in Scrum framework implementation and agile project management.
+                  </p>
+                </div>
+                
+                <div className="cv-item">
+                  <h4 className="font-semibold text-base">Meta Front-End Developer</h4>
+                  <div className="flex items-center gap-2 mt-1">
+                    <Badge variant="outline" className="text-xs">Coursera</Badge>
+                    <span className="text-sm text-muted-foreground">2021</span>
+                  </div>
+                  <p className="text-muted-foreground mt-1 text-sm">
+                    Comprehensive certification in modern front-end development best practices.
+                  </p>
+                </div>
+                
+                <div className="cv-item">
+                  <h4 className="font-semibold text-base">MongoDB Database Administrator</h4>
+                  <div className="flex items-center gap-2 mt-1">
+                    <Badge variant="outline" className="text-xs">MongoDB University</Badge>
+                    <span className="text-sm text-muted-foreground">2020</span>
+                  </div>
+                  <p className="text-muted-foreground mt-1 text-sm">
+                    Advanced database management and optimization techniques.
+                  </p>
+                </div>
+              </div>
+            </div>
             
             {/* Projects */}
             <div className="cv-section">
@@ -323,6 +380,100 @@ const CV = () => {
                     <Badge variant="outline" className="text-xs">Prisma</Badge>
                     <Badge variant="outline" className="text-xs">PostgreSQL</Badge>
                   </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* References - New Section */}
+            <div className="cv-section">
+              <h3 className="cv-section-title">
+                <Users className="w-5 h-5 text-accent" />
+                References
+              </h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="cv-item">
+                  <h4 className="font-semibold text-base">David Murenzi</h4>
+                  <p className="text-sm text-accent">CTO at Andela Rwanda</p>
+                  <div className="flex items-center gap-3 mt-2 text-sm text-muted-foreground">
+                    <div className="flex items-center gap-1">
+                      <Mail className="w-3.5 h-3.5" />
+                      <span>david.m@andela.com</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Phone className="w-3.5 h-3.5" />
+                      <span>+250 788 123 456</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="cv-item">
+                  <h4 className="font-semibold text-base">Sarah Kamugisha</h4>
+                  <p className="text-sm text-accent">Lead Developer at Awesomity Lab</p>
+                  <div className="flex items-center gap-3 mt-2 text-sm text-muted-foreground">
+                    <div className="flex items-center gap-1">
+                      <Mail className="w-3.5 h-3.5" />
+                      <span>sarah.k@awesomity.rw</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Phone className="w-3.5 h-3.5" />
+                      <span>+250 733 987 654</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="mt-3 text-sm text-muted-foreground italic">
+                <p>Additional references available upon request.</p>
+              </div>
+            </div>
+            
+            {/* Hobbies & Interests - New Section */}
+            <div className="cv-section">
+              <h3 className="cv-section-title">
+                <Heart className="w-5 h-5 text-accent" />
+                Hobbies & Interests
+              </h3>
+              
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+                <div className="bg-secondary/50 rounded-lg p-3 text-center flex flex-col items-center gap-2 transition-all hover:bg-secondary">
+                  <Globe className="w-5 h-5 text-accent" />
+                  <span className="text-sm font-medium">Traveling</span>
+                </div>
+                
+                <div className="bg-secondary/50 rounded-lg p-3 text-center flex flex-col items-center gap-2 transition-all hover:bg-secondary">
+                  <Code className="w-5 h-5 text-accent" />
+                  <span className="text-sm font-medium">Open Source</span>
+                </div>
+                
+                <div className="bg-secondary/50 rounded-lg p-3 text-center flex flex-col items-center gap-2 transition-all hover:bg-secondary">
+                  <GraduationCap className="w-5 h-5 text-accent" />
+                  <span className="text-sm font-medium">Learning</span>
+                </div>
+                
+                <div className="bg-secondary/50 rounded-lg p-3 text-center flex flex-col items-center gap-2 transition-all hover:bg-secondary">
+                  <Star className="w-5 h-5 text-accent" />
+                  <span className="text-sm font-medium">Volunteering</span>
+                </div>
+                
+                <div className="bg-secondary/50 rounded-lg p-3 text-center flex flex-col items-center gap-2 transition-all hover:bg-secondary">
+                  <Twitter className="w-5 h-5 text-accent" />
+                  <span className="text-sm font-medium">Tech Twitter</span>
+                </div>
+                
+                <div className="bg-secondary/50 rounded-lg p-3 text-center flex flex-col items-center gap-2 transition-all hover:bg-secondary">
+                  <Briefcase className="w-5 h-5 text-accent" />
+                  <span className="text-sm font-medium">Mentoring</span>
+                </div>
+                
+                <div className="bg-secondary/50 rounded-lg p-3 text-center flex flex-col items-center gap-2 transition-all hover:bg-secondary">
+                  <Users className="w-5 h-5 text-accent" />
+                  <span className="text-sm font-medium">Networking</span>
+                </div>
+                
+                <div className="bg-secondary/50 rounded-lg p-3 text-center flex flex-col items-center gap-2 transition-all hover:bg-secondary">
+                  <Award className="w-5 h-5 text-accent" />
+                  <span className="text-sm font-medium">Hackathons</span>
                 </div>
               </div>
             </div>
