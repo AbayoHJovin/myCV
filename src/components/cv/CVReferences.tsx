@@ -5,17 +5,11 @@ import { Users, Mail, Phone } from "lucide-react";
 const CVReferences = () => {
   const references = [
     {
-      name: "David Murenzi",
-      position: "CTO at Andela Rwanda",
-      email: "david.m@andela.com",
-      phone: "+250 788 123 456"
+      name: "Dushimire Aine",
+      position: "CEO at Neurolabs",
+      email: "ainedushimire@gmail.com",
+      phone: "0798509561"
     },
-    {
-      name: "Sarah Kamugisha",
-      position: "Lead Developer at Awesomity Lab",
-      email: "sarah.k@awesomity.rw",
-      phone: "+250 733 987 654"
-    }
   ];
 
   return (

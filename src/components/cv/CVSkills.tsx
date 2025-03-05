@@ -9,6 +9,7 @@ const CVSkills = () => {
     { name: "Node.js/Express", percentage: 85 },
     { name: "HTML/CSS/Tailwind", percentage: 92 },
     { name: "MongoDB/PostgreSQL", percentage: 80 },
+    { name: "Java/Python", percentage: 80 },
     { name: "Git/CI-CD", percentage: 88 },
   ];
 

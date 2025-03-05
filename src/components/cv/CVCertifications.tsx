@@ -6,28 +6,16 @@ import { Badge } from "@/components/ui/badge";
 const CVCertifications = () => {
   const certifications = [
     {
-      name: "AWS Certified Solutions Architect",
-      issuer: "Amazon Web Services",
-      year: "2023",
-      description: "Designed and deployed scalable, highly available systems on AWS infrastructure."
-    },
-    {
-      name: "Professional Scrum Master I",
-      issuer: "Scrum.org",
-      year: "2022",
-      description: "Certified in Scrum framework implementation and agile project management."
-    },
-    {
       name: "Meta Front-End Developer",
       issuer: "Coursera",
-      year: "2021",
+      year: "2024",
       description: "Comprehensive certification in modern front-end development best practices."
     },
     {
-      name: "MongoDB Database Administrator",
-      issuer: "MongoDB University",
-      year: "2020",
-      description: "Advanced database management and optimization techniques."
+      name: "Intro to Cyber",
+      issuer: "ThinkCyber",
+      year: "2023",
+      description: "Cybersecurity trainings by Israeli cybersecurity experts."
     }
   ];
 

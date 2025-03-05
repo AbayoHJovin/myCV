@@ -4,10 +4,8 @@ import { Globe } from "lucide-react";
 
 const CVLanguages = () => {
   const languages = [
-    { name: "English", level: "Fluent", percentage: 95 },
-    { name: "French", level: "Intermediate", percentage: 70 },
+    { name: "English", level: "Fluent", percentage: 90 },
     { name: "Kinyarwanda", level: "Native", percentage: 100 },
-    { name: "Swahili", level: "Conversational", percentage: 60 }
   ];
 
   return (
